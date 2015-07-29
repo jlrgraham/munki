@@ -1208,6 +1208,7 @@ def pref(pref_name):
         'SuppressUserNotification': False,
         'SuppressAutoInstall': False,
         'SuppressStopButtonOnInstall': False,
+        'SuppressCAInstall': False,
         'PackageVerificationMode': 'hash'
     }
     pref_value = CFPreferencesCopyAppValue(pref_name, BUNDLE_ID)

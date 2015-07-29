@@ -539,7 +539,8 @@ class MunkiKeychain(object):
         Unlocks the munki.keychain if it exists.
         Makes sure the munki.keychain is in the search list.
         Creates a new client keychain if needed.'''
-        add_ca_certs_to_system_keychain()
+        if not munkcommon.pref('SuppressCAInstall'):
+            add_ca_certs_to_system_keychain()
         self.keychain_path = get_keychain_path()
         if client_certs_exist() and os.path.exists(self.keychain_path):
             # we have client certs; we should build a keychain using them
